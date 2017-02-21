@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0E3D64C8-68D9-49C2-BBC2-F03CBD63A22B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>litjson</RootNamespace>
+    <AssemblyName>litjson</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\..\src\LitJson\IJsonWrapper.cs">
+      <Link>IJsonWrapper.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\src\LitJson\JsonData.cs">
+      <Link>JsonData.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\src\LitJson\JsonException.cs">
+      <Link>JsonException.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\src\LitJson\JsonMapper.cs">
+      <Link>JsonMapper.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\src\LitJson\JsonMockWrapper.cs">
+      <Link>JsonMockWrapper.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\src\LitJson\JsonReader.cs">
+      <Link>JsonReader.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\src\LitJson\JsonWriter.cs">
+      <Link>JsonWriter.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\src\LitJson\Lexer.cs">
+      <Link>Lexer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\src\LitJson\ParserToken.cs">
+      <Link>ParserToken.cs</Link>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+</Project>

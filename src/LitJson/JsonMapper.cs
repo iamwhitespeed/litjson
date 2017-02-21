@@ -289,8 +289,10 @@ namespace LitJson
             if (conv_ops[t1].ContainsKey (t2))
                 return conv_ops[t1][t2];
 
-            MethodInfo op = t1.GetMethod (
-                "op_Implicit", new Type[] { t2 });
+            MethodInfo op = t1.GetMethod ("op_Implicit", new Type[] { t2 });
+
+            if(null == op)
+                op = t1.GetMethod ("op_Explicit", new Type[] { t2 });
 
             lock (conv_ops_lock) {
                 try {
@@ -358,9 +360,15 @@ namespace LitJson
 
                 // Maybe it's an enum
                 if (value_type.IsEnum)
-                    return Enum.ToObject (value_type, reader.Value);
+                {
+                    if (reader.Token == JsonToken.String)
+                        return Enum.Parse(value_type, (string)reader.Value, true);
+                    else
+                        return Enum.ToObject (value_type, reader.Value);
+                }
+                    
 
-                // Try using an implicit conversion operator
+                // Try using an implicit & explicit conversion operator
                 MethodInfo conv_op = GetConvOp (value_type, json_type);
 
                 if (conv_op != null)
@@ -369,8 +377,8 @@ namespace LitJson
 
                 // No luck
                 throw new JsonException (String.Format (
-                        "Can't assign value '{0}' (type {1}) to type {2}",
-                        reader.Value, json_type, inst_type));
+                    "Can't assign value '{0}' (type {1}) to type {2}, token {3}",
+                    reader.Value, json_type, inst_type,reader.Token));
             }
 
             object instance = null;
@@ -671,6 +679,19 @@ namespace LitJson
             };
             RegisterImporter (base_importers_table, typeof (string),
                               typeof (DateTime), importer);
+
+            //add int, long, double, bool to string
+            importer = delegate (object input) {
+                return input.ToString();
+            };
+            RegisterImporter (base_importers_table, typeof (int),
+                typeof (string), importer);
+            RegisterImporter (base_importers_table, typeof (double),
+                typeof (string), importer);
+            RegisterImporter (base_importers_table, typeof (long),
+                typeof (string), importer);
+            RegisterImporter (base_importers_table, typeof (bool),
+                typeof (string), importer);
         }
 
         private static void RegisterImporter (

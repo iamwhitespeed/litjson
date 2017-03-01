@@ -398,6 +398,8 @@ namespace LitJson
 
                 if (! t_data.IsArray) {
                     list = (IList) Activator.CreateInstance (inst_type);
+					//TRICK Ensure this is IList
+					bool fixedSize = list.IsFixedSize;
                     elem_type = t_data.ElementType;
                 } else {
                     list = new ArrayList ();

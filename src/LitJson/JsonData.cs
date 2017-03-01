@@ -408,11 +408,6 @@ namespace LitJson
 
         #region Explicit Conversions
 
-        public static explicit operator IList (JsonData data)
-        {
-            return data.EnsureList();
-        }
-
         public static explicit operator Boolean (JsonData data)
         {
             if (data.type != JsonType.Boolean)

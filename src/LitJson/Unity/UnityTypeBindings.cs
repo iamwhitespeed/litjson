@@ -19,28 +19,18 @@ namespace LitJson {
 			Register();
 		}
 
-        
-
 		public static void Register(){
 
 			if(registerd) return;
 			registerd = true;
-            //add string to int, long, double, bool 
-           
-            JsonMapper.RegisterImporter<string, int>(int.Parse);
-            JsonMapper.RegisterImporter<string, float>(float.Parse);
-            JsonMapper.RegisterImporter<string, long>(long.Parse);
-            JsonMapper.RegisterImporter<string, double>(double.Parse);
-            JsonMapper.RegisterImporter<string, bool>(bool.Parse);
-		    JsonMapper.RegisterImporter<int, bool>(input => input > 0);
 
-            // If you seralize using WriteProperty()
-            // LitJson will attempt to bind property
-            // names to class members instead of using
-            // an importer.
+			// If you seralize using WriteProperty()
+			// LitJson will attempt to bind property
+			// names to class members instead of using
+			// an importer.
 
-            // -- Type
-            JsonMapper.RegisterExporter<Type>((v,w) => {
+			// -- Type
+			JsonMapper.RegisterExporter<Type>((v,w) => {
 				w.Write(v.FullName);
 			});
 			

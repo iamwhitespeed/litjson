@@ -1,3 +1,7 @@
 /bin
 /src/LitJson/AssemblyInfo.cs
 /website
+/build/MonoDevelop/litjson/bin
+/build/MonoDevelop/litjson/obj
+/console/obj
+/console/bin

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -31,9 +31,7 @@
     <Reference Include="System" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <ItemGroup>
-    <Folder Include="Properties\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Compile Include="..\..\..\src\LitJson\IJsonWrapper.cs">
       <Link>IJsonWrapper.cs</Link>
@@ -61,6 +59,12 @@
     </Compile>
     <Compile Include="..\..\..\src\LitJson\ParserToken.cs">
       <Link>ParserToken.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\src\LitJson\JsonAttribute.cs">
+      <Link>JsonAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\src\LitJson\JsonWriterRaw.cs">
+      <Link>JsonWriterRaw.cs</Link>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

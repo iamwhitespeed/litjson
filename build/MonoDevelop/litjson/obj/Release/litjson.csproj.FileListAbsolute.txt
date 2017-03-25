@@ -1,4 +1,0 @@
-F:\litjson\build\MonoDevelop\litjson\bin\Release\litjson.dll
-F:\litjson\build\MonoDevelop\litjson\bin\Release\litjson.pdb
-F:\litjson\build\MonoDevelop\litjson\obj\Release\litjson.dll
-F:\litjson\build\MonoDevelop\litjson\obj\Release\litjson.pdb

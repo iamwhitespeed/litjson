@@ -72,7 +72,7 @@ namespace console
                 //    succeed = false;
                 //if (!TestToObject(emptyJsonText))
                 //    succeed = false;
-                var intJsonData = JsonMapper.ToObject<JsonData>(@"true");
+                var intJsonData = JsonMapper.ToObject<JsonData>(@"5555");
                 if (null == intJsonData)
                     succeed = false;
             }

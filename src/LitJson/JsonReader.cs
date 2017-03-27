@@ -401,8 +401,9 @@ namespace LitJson
             {
                 readStarted = true;
                 ReadToken();
-                //if (!ReadToken()) {
-                //	return false;
+                //if (!ReadToken())
+                //{
+                //    return false;
                 //}
             }
             int[] entrySymbols;
